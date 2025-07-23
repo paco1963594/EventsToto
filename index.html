@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sport Event 365</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .rainbow-text {
+      font-size: 1.2em;
+      font-weight: bold;
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 3s infinite linear;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .title-colored span:nth-child(1) {
+      color: red;
+    }
+
+    .title-colored span:nth-child(2) {
+      color: orange;
+    }
+
+    .title-colored span:nth-child(3) {
+      color: yellow;
+    }
+
+    .emoji-ball {
+      width: 250px;
+      height: 250px;
+      margin: 20px auto;
+      border-radius: 50%;
+      background-color: #111;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      border: 3px solid white;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .booking-box {
+      border: 2px solid #fff;
+      padding: 20px;
+      margin: 30px auto;
+      width: 80%;
+      background-color: #111;
+    }
+
+    .rainbow-button {
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      color: black;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 15px white;
+      animation: rainbow 5s infinite linear;
+      margin-top: 20px;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    img#bottomImage {
+      width: 100%;
+      max-width: 700px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title-colored">
+    <span>Sport </span><span>Event </span><span>365</span>
+  </h1>
+
+  <a href="https://www.sportsevents365.com/?a_aid=687e726e57fdf" class="rainbow-button" id="bookBtn">احجز تذكرتك الآن</a>
+
+  <div class="emoji-ball">
+    🏀 🏈 ⚽ 🏐 🥊 🏓 🎾 🏸 🏒 🥋
+  </div>
+
+  <div class="booking-box rainbow-text" id="bookingMessage">
+    احجز تذكرتك في جميع الملتقيات الرياضية والموسيقية وغيرها حالا قبل فوات الأوان
+  </div>
+
+  <img id="bottomImage" src="https://i.imgur.com/aZssLid.jpeg" alt="Sport Event Image" />
+
+  <script>
+    const messages = [
+      { lang: "ar", msg: "احجز تذكرتك في جميع الملتقيات الرياضية والموسيقية وغيرها حالا قبل فوات الأوان", btn: "احجز تذكرتك الآن" },
+      { lang: "en", msg: "Book your ticket for all sports, music and other events now before it's too late!", btn: "Book Your Ticket Now" },
+      { lang: "fr", msg: "Réservez votre billet pour tous les événements sportifs, musicaux et autres dès maintenant avant qu'il ne soit trop tard !", btn: "Réservez votre billet" },
+      { lang: "es", msg: "¡Reserva tu entrada para todos los eventos deportivos, musicales y más ahora antes de que sea demasiado tarde!", btn: "Reserva tu entrada ahora" },
+      { lang: "de", msg: "Buchen Sie jetzt Ihr Ticket für alle Sport-, Musik- und andere Veranstaltungen, bevor es zu spät ist!", btn: "Jetzt Ticket buchen" },
+      { lang: "it", msg: "Prenota subito il tuo biglietto per tutti gli eventi sportivi, musicali e altri prima che sia troppo tardi!", btn: "Prenota ora" },
+      { lang: "pt", msg: "Reserve seu ingresso para todos os eventos esportivos, musicais e outros agora antes que seja tarde demais!", btn: "Reserve agora" },
+      { lang: "zh", msg: "现在就为所有体育、音乐和其他活动预订门票，别错过！", btn: "立即订票" },
+      { lang: "ru", msg: "Забронируйте билет на все спортивные, музыкальные и другие мероприятия прямо сейчас, пока не стало слишком поздно!", btn: "Забронировать билет" },
+    ];
+
+    let index = 0;
+    setInterval(() => {
+      const m = messages[index];
+      document.getElementById("bookingMessage").innerText = m.msg;
+      document.getElementById("bookBtn").innerText = m.btn;
+      index = (index + 1) % messages.length;
+    }, 4000);
+  </script>
+</body>
+</html>
